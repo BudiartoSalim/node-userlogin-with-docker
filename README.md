@@ -17,13 +17,14 @@ Current plan:
 Reminder notes:
 
 commands:
-npm run dev //running the app for development environment, for manual test
-npm run test //running the jest/supertest script for unit testing
+- npm run dev //running the app for development environment, for manual test
+- npm run test //running the jest/supertest script for unit testing
 
 CARA GANTI NODE_ENV BUAT UNIT TESTING DI WINDOWS POWERSHELL:
 
-$env:NODE_ENV="test" //change NODE_ENV ke test environment (biar sequelize pakai test env config ketika npm run test)
-$env:NODE_ENV="development" //chnage NODE_ENV ke development environment (biasa pakai ini buat manual tests)
+- $env:NODE_ENV="test" //change NODE_ENV ke test environment (biar sequelize pakai test env config ketika npm run test)
+- $env:NODE_ENV="development" //chnage NODE_ENV ke development environment (biasa pakai ini buat manual tests)
+- $env:NODE_ENV //check current NODE_ENV
 
 cara lain, bikin file ".sequelizerc"
 
@@ -31,3 +32,5 @@ isinya:
 module.exports = { 
   env: 'test'
 }
+
+DO NOT FORGET TO RUN "npx sequelize-cli db:create" and "npx sequelize-cli db:migrate" to generate the database and table first for test and/or development NODE_ENV depending on which one you're going to run.
