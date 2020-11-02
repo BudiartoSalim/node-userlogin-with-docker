@@ -1,0 +1,19 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "asdjkl",
+    "database": "db_userlogin_practice",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "asdjkl",
+    "database": "db_userlogin_test",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL"
+  }
+}

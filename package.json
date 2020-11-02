@@ -1,0 +1,42 @@
+{
+  "name": "node-userlogin-with-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npx nodemon ./http/server.js",
+    "start": "node ./http/server.js",
+    "test": "jest --verbose --runInBand --detectOpenHandles --coverage --forceExit"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/models/index.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BudiartoSalim/node-userlogin-with-docker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BudiartoSalim/node-userlogin-with-docker/issues"
+  },
+  "homepage": "https://github.com/BudiartoSalim/node-userlogin-with-docker#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.4.2",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "jest": "^26.6.1",
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^6.0.0"
+  }
+}
