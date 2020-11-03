@@ -1,9 +1,10 @@
+require('dotenv').config();
 const { beforeAll, afterAll, expect } = require('@jest/globals');
 const request = require('supertest');
 const app = require('../app.js');
 const { User } = require('../models/index.js');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'secretkeyhere';
+const JWT_SECRET = process.env.JWT_SECRET;
 const tokenExpiration = "1h";
 let correctuser_token;
 let wronguser_token;
@@ -88,7 +89,7 @@ describe('==User Path Test==', () => {
           } else {
             expect(res.status).toBe(201);
             expect(res.body).toHaveProperty('message');
-            expect(res.body.message).toBe('User registertester successfully registered!');
+            expect(res.body.message).toBe(`User ${longstring} successfully registered!`);
             done();
           }
         })
@@ -167,6 +168,7 @@ describe('==User Path Test==', () => {
           if (err) {
             done(err);
           } else {
+            console.log(res.body)
             expect(res.status).toBe(400);
             expect(res.body).toHaveProperty('message');
             expect(res.body.message).toBe('Username is unavailable.');
@@ -329,7 +331,7 @@ describe('==User Path Test==', () => {
             done(err);
           } else {
             expect(res.status).toBe(401);
-            expect(res.body).toHaveProperty('Wrong ID/Password.');
+            expect(res.body).toHaveProperty('message', 'Wrong ID/Password.');
             done();
           }
         })
@@ -347,7 +349,7 @@ describe('==User Path Test==', () => {
             done(err);
           } else {
             expect(res.status).toBe(401);
-            expect(res.body).toHaveProperty('Wrong ID/Password.');
+            expect(res.body).toHaveProperty('message', 'Wrong ID/Password.');
             done();
           }
         })
@@ -396,7 +398,7 @@ describe('==User Path Test==', () => {
             done(err)
           } else {
             expect(res.status).toBe(401);
-            expect(res.body).toHaveProperty('message', 'Token expired.');
+            expect(res.body).toHaveProperty('message', 'Unauthorized.');
             done();
           }
         })
