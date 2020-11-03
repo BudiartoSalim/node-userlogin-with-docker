@@ -19,30 +19,30 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING, allowNull: false, unique: true,
       validate: {
-        notNull: { args: true, msg: "Username must not be empty." },
+        notNull: { args: true, msg: "Username must be between 4 - 50 characters long." },
         len: {
           args: [4, 50],
-          msg: "Username must be between 4 to 50 characters long."
+          msg: "Username must be between 4 - 50 characters long."
         }
       }
     },
     email: {
       type: DataTypes.STRING, allowNull: false, unique: true,
       validate: {
-        notNull: { args: true, msg: "Email is unavailable." }
-      },
-      is: {
-        args: /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2.4}$/i,
-        msg: "Must be in email format."
+        notNull: { args: true, msg: "Email cannot be empty." },
+        is: {
+          args: /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,
+          msg: "Email must be in email format."
+        }
       }
     },
     password: {
       type: DataTypes.STRING, allowNull: false,
       validate: {
-        notNull: { args: true, msg: "Password cannot be empty." },
+        notNull: { args: true, msg: "Password must be between 4 - 50 characters long." },
         len: {
           args: [4, 50],
-          msg: "Password must be between 4 to 50 characters long."
+          msg: "Password must be between 4 - 50 characters long."
         }
       }
     }

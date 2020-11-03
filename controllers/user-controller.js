@@ -12,7 +12,7 @@ class UserController {
         username: req.body.username,
         password: req.body.password
       });
-      res.status(201).json(`User ${req.body.username} successfully registered!`);
+      res.status(201).json({ message: `User ${req.body.username} successfully registered!` });
     } catch (err) {
       next(err);
     }

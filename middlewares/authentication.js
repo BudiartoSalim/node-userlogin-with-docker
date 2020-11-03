@@ -18,7 +18,7 @@ async function authentication(req, res, next) {
     };
   }
   catch (err) {
-    if (err.name && err.name === 'JsonWebTokenError') {
+    if (err.name && err.name === 'JsonWebTokenError' || err.name === 'TokenExpiredError') {
       err = 'Unauthorized.';
     }
     res.status(401).json({ message: err });
