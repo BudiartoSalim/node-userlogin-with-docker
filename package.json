@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "npx nodemon ./http/server.js",
     "start": "node ./http/server.js",
-    "test": "jest --verbose --runInBand --detectOpenHandles --coverage --forceExit"
+    "test": "jest --verbose --runInBand --detectOpenHandles --coverage --forceExit",
+    "db": "npx sequelize-cli db:create",
+    "migrate": "npx sequelize-cli db:migrate"
   },
   "jest": {
     "coveragePathIgnorePatterns": [

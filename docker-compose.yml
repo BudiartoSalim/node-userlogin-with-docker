@@ -1,0 +1,25 @@
+version: '3'
+services: 
+  app:
+    container_name: node-userlogin-with-docker
+    restart: always
+    build: .
+    ports: 
+      - '3000:3000'
+    depends_on:
+      - postgres
+    environment: 
+      DB_HOST: postgres
+      DB_USER: postgres
+      DB_DATABASE: db_userlogin_practice
+      DB_PASSWORD: asdjkl
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: asdjkl
+      POSTGRES_DB: db_userlogin_practice
+    ports: 
+      - '5432:5432'
+    
