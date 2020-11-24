@@ -7,12 +7,12 @@ this is a practice aimed at:
 
 Current plan:
 1. create base models and hooks for the user creation //done
-2. create test cases //in progress
-3. create routes and controller
-4. create middleware for auth
-5. create error handler middleware
-6. adjust output to match test cases written
-7. dockerize the application
+2. create test cases //done
+3. create routes and controller //done
+4. create middleware for auth //done
+5. create error handler middleware //done
+6. adjust output to match test cases written //done
+7. dockerize the application //done, might need more work
 
 Reminder notes:
 
